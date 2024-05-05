@@ -41,7 +41,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 
 local configs = require("nvim-treesitter.configs")
 configs.setup({
-  ensure_installed = { "lua", "ocaml" }
+  ensure_installed = { "lua", "ocaml", "python", "javascript", "java", "bash", "xml", "yaml" }
 })
 
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
