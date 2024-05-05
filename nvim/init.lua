@@ -1,2 +1,2 @@
 require('basics')
-require('plugins')
+require('package-manager')
