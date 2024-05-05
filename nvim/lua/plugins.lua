@@ -14,14 +14,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-   { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
- , { "nvim-tree/nvim-tree.lua",
-     version = "*",
-     lazy = false,
-     dependencies = {
-       "nvim-tree/nvim-web-devicons",
-     }
-  }
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+  , { "nvim-tree/nvim-tree.lua",
+      version = "*",
+      lazy = false,
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      }
+    }
+  , { 'nvim-telescope/telescope.nvim', tag = '0.1.6',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+    }
+  , {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
 }
 local opts = {}
 
@@ -31,3 +35,11 @@ require("catppuccin").setup()
 vim.cmd.colorscheme "catppuccin"
 
 require('nvim-tree').setup()
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+
+local configs = require("nvim-treesitter.configs")
+configs.setup({
+  ensure_installed = { "lua", "ocaml" }
+})
