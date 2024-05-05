@@ -1,5 +1,5 @@
 -- leaser key
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 
 -- tab behaviour
 vim.o.expandtab = true
