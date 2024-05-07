@@ -13,8 +13,39 @@ return {
     mason_lspconfig.setup {
         ensure_installed = { "pyright" }
     }
-    require("lspconfig").pyright.setup {
+
+    local lsp = require("lspconfig")
+
+    lsp.pyright.setup {
         capabilities = capabilities,
     }
+
+
+    local ocaml_on_attach = function(client, bufnr)
+      local bufopts = { noremap=true, silent=true, buffer=bufnr }
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+      -- code lens 
+      if client.resolved_capabilities.code_lens then
+          local codelens = vim.api.nvim_create_augroup(
+              'LSPCodeLens',
+              { clear = true }
+          )
+          vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'CursorHold' }, {
+              group = codelens,
+              callback = function()
+                  vim.lsp.codelens.refresh()
+              end,
+              buffer = bufnr,
+          })
+      end
+    end
+
+    lsp.ocamllsp.setup({
+      cmd = { "ocamllsp" },
+      filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+      root_dir = lsp.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
+      on_attach = ocaml_on_attach,
+      capabilities = capabilities
+    })
   end
 }
