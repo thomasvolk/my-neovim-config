@@ -6,5 +6,15 @@ return {
   config = function()
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+    require('telescope').setup{ 
+      defaults = { 
+        file_ignore_patterns = { 
+          ".idea", ".git",
+          "node_modules",
+          "env", "venv", "__pycache__",
+          "_build"
+        }
+      }
+    }
   end
 }
