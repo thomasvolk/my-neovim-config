@@ -9,7 +9,3 @@ vim.o.shiftwidth = 2
 
 -- show linenumbers
 vim.wo.number = true
-
--- shortcuts
-vim.keymap.set('n', '<C-b>', ':bn<CR>', {})
-vim.keymap.set('n', '<C-.>', ':q<CR>', {})
