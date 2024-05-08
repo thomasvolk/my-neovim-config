@@ -2,6 +2,24 @@
 
 This is my neovim configuration.
 
+## Prerequisites
+
+You have to have the following software installed
+
+* Python3
+* node
+* git
+
+Language support:
+* pyright
+    `pip3 install pyright`
+* OCaml
+    ```
+    opam install ocamlformat-rpc
+    opam install ocamlformat
+    opam install ocaml-lsp-server
+    ```
+
 ## Installation
 
 Checkout the repo and link it to `$HOME/.config/nvim`:
