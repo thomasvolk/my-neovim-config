@@ -13,10 +13,10 @@ return {
     require('telescope').setup{ 
       defaults = { 
         file_ignore_patterns = { 
-          ".idea", ".git",
-          "node_modules",
-          "env", "venv", "__pycache__",
-          "_build"
+          ".idea", ".git/",
+          "node_modules/",
+          "env/", "venv/", "__pycache__/",
+          "_build/"
         }
       }
     }
