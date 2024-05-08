@@ -10,6 +10,12 @@ You have to have the following software installed
 * node
 * git
 
+Required for telescope:
+* ripgrep
+    ```
+    brew install ripgrep
+    ```
+
 Required language server:
 
 * pyright
