@@ -16,10 +16,13 @@ return {
 
     local lsp = require("lspconfig")
 
+    -- python-lsp
+
     lsp.pyright.setup {
         capabilities = capabilities,
     }
 
+    -- ocaml-lsp
 
     local ocaml_on_attach = function(client, bufnr)
       local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -42,10 +45,14 @@ return {
 
     lsp.ocamllsp.setup({
       cmd = { "ocamllsp" },
-      filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+      filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "opam", "reason", "dune", "yaml", "terraform" },
       root_dir = lsp.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
       on_attach = ocaml_on_attach,
       capabilities = capabilities
     })
+
+    -- terraform-lsp
+
+    lsp.terraformls.setup({})
   end
 }

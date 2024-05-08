@@ -10,14 +10,20 @@ You have to have the following software installed
 * node
 * git
 
-Language support:
+Required language server:
+
 * pyright
     `pip3 install pyright`
+
 * OCaml
     ```
     opam install ocamlformat-rpc
     opam install ocamlformat
     opam install ocaml-lsp-server
+    ```
+* Terraform
+    ```
+    brew install hashicorp/tap/terraform-ls
     ```
 
 ## Installation
