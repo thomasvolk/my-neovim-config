@@ -11,6 +11,7 @@ Files:
 Ctrl + n                 - open NERDTree
 <Leader> + nn            - toggle NERDTree
 :Neotree close           - close NERDTree
+<Leader> + tt            - open terminal
 
 
 Buffers:
