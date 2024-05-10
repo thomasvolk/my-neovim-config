@@ -49,6 +49,7 @@ Checkout the repo and link it to `$HOME/.config/nvim`:
 Files:
 ```
 <Leader> + ff            - fuzzy find file
+<Leader> + fg            - grep files
 Ctrl + n                 - open NERDTree
 <Leader> + nn            - toggle NERDTree
 :Neotree close           - close NERDTree
@@ -64,6 +65,12 @@ Buffers:
 Autocomplete:
 ```
 <Tab>                    - autocomplete
+```
+
+Git:
+```
+:DiffviewOpen            - open divview
+:DiffviewClose           - close divview
 ```
 
 ### tmux

@@ -7,6 +7,7 @@ function print_help()
 Files:
 
 <Leader> + ff            - fuzzy find file
+<Leader> + fg            - grep files
 Ctrl + n                 - open NERDTree
 <Leader> + nn            - toggle NERDTree
 :Neotree close           - close NERDTree
@@ -17,6 +18,11 @@ Buffers:
 <Leader> + bb            - list buffers
 <Leader> + bd            - close buffers
 :bd                      - close buffer
+
+Git:
+
+:DiffviewOpen            - open divview
+:DiffviewClose           - close divview
 
 
 Autocomplete:
