@@ -78,5 +78,16 @@ return {
       },
 
     })
+
+    -- html
+
+    lsp.html.setup {
+      capabilities = capabilities,
+    }
+
+    -- css
+    
+    lsp.tailwindcss.setup({})
+
   end
 }

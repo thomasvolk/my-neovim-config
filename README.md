@@ -32,6 +32,11 @@ Required language server:
     brew install hashicorp/tap/terraform-ls
     ```
 
+* HTML
+    ```
+    npm i -g vscode-langservers-extracted
+    ```
+
 ## Installation
 
 Checkout the repo and link it to `$HOME/.config/nvim`:
