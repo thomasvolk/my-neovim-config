@@ -50,7 +50,7 @@ Files:
 ```
 <Leader> + ff            - fuzzy find file
 <Leader> + fg            - grep files
-Ctrl + n                 - open NERDTree
+<Ctrl> + n                 - open NERDTree
 <Leader> + nn            - toggle NERDTree
 :Neotree close           - close NERDTree
 <Leader> + tt            - open terminal
@@ -61,6 +61,12 @@ Buffers:
 <Leader> + bb            - list buffers
 <Leader> + bd            - close buffers
 :bd                      - close buffer
+```
+
+Windows:
+```
+<Ctrl> + ww                - switch between windows
+<Ctrl> + w<Arrow>          - navigate to another windows
 ```
 
 Autocomplete:
@@ -86,18 +92,18 @@ Reattach to a session:
 
 Commands:
 ```
-Ctrl + b, d               - detach session
+<Ctrl> + bd               - detach session
 
-Ctrl + b, %               - split vertically
-Ctrl + b, "               - split horizontally
-Ctrl + b, o               - switch panes
-Ctrl + b, <Arrow>         - switch panes
-Ctrl + b, Alt + <Arrow>   - resize panes
-Ctrl + b, x               - close pane
+<Ctrl> + b%               - split vertically
+<Ctrl> + b"               - split horizontally
+<Ctrl> + bo               - switch panes
+<Ctrl> + b<Arrow>         - switch panes
+<Ctrl> + b<Alt> + <Arrow>   - resize panes
+<Ctrl> + bx               - close pane
 
-Ctrl + b, c               - create new window
-Ctrl + b, n               - next window
-Ctrl + b, p               - previous window
-Ctrl + b, w               - list windows
-Ctrl + b, &               - close window
+<Ctrl> + bc               - create new window
+<Ctrl> + bn               - next window
+<Ctrl> + bp               - previous window
+<Ctrl> + bw               - list windows
+<Ctrl> + b&               - close window
 ```
