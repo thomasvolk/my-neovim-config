@@ -37,6 +37,11 @@ Required language server:
     npm i -g vscode-langservers-extracted
     ```
 
+* bash
+    ```
+    npm i -g bash-language-server
+    ```
+
 ## Installation
 
 Checkout the repo and link it to `$HOME/.config/nvim`:

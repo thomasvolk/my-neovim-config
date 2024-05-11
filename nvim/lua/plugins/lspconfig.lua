@@ -86,8 +86,16 @@ return {
     }
 
     -- css
-    
+
     lsp.tailwindcss.setup({})
+
+    -- bash
+
+    lsp.bashls.setup({})
+
+    -- make
+
+    lsp.cmake.setup{}
 
   end
 }
