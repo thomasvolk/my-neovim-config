@@ -1,4 +1,4 @@
-return { 
+return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "williamboman/mason.nvim",
@@ -9,7 +9,7 @@ return {
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
     local lsp_zero = require('lsp-zero')
-    lsp_zero.on_attach(function(client, bufnr)
+    lsp_zero.on_attach(function(_, bufnr)
       lsp_zero.default_keymaps({buffer = bufnr})
     end)
 
@@ -66,7 +66,17 @@ return {
 
 
     -- lua lsp
-    
-    lsp.lua_ls.setup({})
+
+    lsp.lua_ls.setup({
+      settings = {
+        Lua = {
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = {'vim'},
+          },
+        },
+      },
+
+    })
   end
 }

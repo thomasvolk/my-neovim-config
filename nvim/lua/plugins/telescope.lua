@@ -10,9 +10,9 @@ return {
     vim.keymap.set('n', '<leader>bb', builtin.buffers, {})
     vim.keymap.set('n', '<leader>bd', ':bd<CR>', {})
 
-    require('telescope').setup{ 
-      defaults = { 
-        file_ignore_patterns = { 
+    require('telescope').setup{
+      defaults = {
+        file_ignore_patterns = {
           ".idea", ".git/",
           "node_modules/",
           "env/", "venv/", "__pycache__/",
