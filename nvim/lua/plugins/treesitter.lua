@@ -16,7 +16,8 @@ return {
         "yaml",
         "ocaml",
         "html",
-        "css"
+        "css",
+        "terraform"
       }
     })
   end
