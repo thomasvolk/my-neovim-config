@@ -56,6 +56,13 @@ Checkout the repo and link it to `$HOME/.config/nvim`:
 
 ### nvim
 
+Help:
+```
+<Leader> + ?             - help
+:MyNeovimHelp            - help
+```
+
+
 Files:
 ```
 <Leader> + ff            - fuzzy find file
@@ -75,8 +82,8 @@ Buffers:
 
 Windows:
 ```
-<Ctrl> + ww                - switch between windows
-<Ctrl> + w<Arrow>          - navigate to another windows
+<Ctrl> + ww              - switch between windows
+<Ctrl> + w<Arrow>        - navigate to another windows
 ```
 
 Autocomplete:

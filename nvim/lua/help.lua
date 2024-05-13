@@ -4,6 +4,11 @@ function print_help()
 
 -- nvim --
 
+Help:
+
+<Leader> + ?             - help
+:MyNeovimHelp            - help
+
 Files:
 
 <Leader> + ff            - fuzzy find file
@@ -21,8 +26,8 @@ Buffers:
 :bd                      - close buffer
 
 Windows:
-<Ctrl> + ww                - switch between windows
-<Ctrl> + w<Arrow>          - navigate to another windows
+<Ctrl> + ww              - switch between windows
+<Ctrl> + w<Arrow>        - navigate to another windows
 
 Git:
 
@@ -64,6 +69,7 @@ Commands:
 end
 
 
-vim.api.nvim_create_user_command('MyHelp', print_help,
+vim.api.nvim_create_user_command('MyNeovimHelp', print_help,
   {nargs = 0, desc = 'Print help'}
 )
+vim.keymap.set('n', '<Leader>?', ':MyNeovimHelp<CR>', {})
