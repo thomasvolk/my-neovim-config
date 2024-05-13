@@ -54,7 +54,7 @@ return {
 
     lsp.ocamllsp.setup({
       cmd = { "ocamllsp" },
-      filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "opam", "reason", "dune", "yaml", "terraform" },
+      filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "opam", "reason", "dune" },
       root_dir = lsp.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
       on_attach = ocaml_on_attach,
       capabilities = capabilities
