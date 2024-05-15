@@ -103,13 +103,26 @@ Start tmux:
 
     tmux
 
+... with name:
+
+    tmux new -s session_name
+
 Reattach to a session:
 
     tmux attach
 
+... with name:
+
+    tmux a -t session_name
+
+List sessions:
+
+    tmux ls
+
 Commands:
 ```
 <Ctrl> + bd               - detach session
+<Ctrl> + b$               - rename session
 
 <Ctrl> + b%               - split vertically
 <Ctrl> + b"               - split horizontally
