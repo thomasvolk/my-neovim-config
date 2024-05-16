@@ -81,9 +81,10 @@ return {
 
     -- html
 
-    lsp.html.setup {
+    lsp.html.setup({
       capabilities = capabilities,
-    }
+      filetypes = { "html", "templ", "xhtml" },
+    })
 
     -- css
 
@@ -95,7 +96,7 @@ return {
 
     -- make
 
-    lsp.cmake.setup{}
+    lsp.cmake.setup({})
 
   end
 }
