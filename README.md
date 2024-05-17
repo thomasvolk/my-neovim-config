@@ -71,6 +71,7 @@ Files:
 <Leader> + nn            - toggle NERDTree
 :Neotree close           - close NERDTree
 <Leader> + tt            - open terminal
+<Leader> + o             - open outline
 ```
 
 Buffers:
@@ -86,9 +87,10 @@ Windows:
 <Ctrl> + w<Arrow>        - navigate to another windows
 ```
 
-Autocomplete:
+Editing:
 ```
 <Tab>                    - autocomplete
+gg=G                     - autoformat the whole file
 ```
 
 Git:

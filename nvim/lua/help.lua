@@ -17,6 +17,7 @@ Files:
 <Leader> + nn            - toggle NERDTree
 :Neotree close           - close NERDTree
 <Leader> + tt            - open terminal
+<Leader> + o             - open outline
 
 
 Buffers:
@@ -35,9 +36,10 @@ Git:
 :DiffviewClose           - close divview
 
 
-Autocomplete:
+Editing:
 
 <Tab>                    - autocomplete
+gg=G                     - autoformat the whole file
 
 -- tmux --
 
