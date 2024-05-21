@@ -11,6 +11,7 @@ You have to have the following software installed
 * git
 
 Required for telescope:
+
 * ripgrep
     ```
     brew install ripgrep
@@ -40,6 +41,12 @@ Required language server:
 * bash
     ```
     npm i -g bash-language-server
+    ```
+
+* lua
+
+    ```
+    brew install lua-language-server
     ```
 
 ## Installation
@@ -91,6 +98,10 @@ Editing:
 ```
 <Tab>                    - autocomplete
 gg=G                     - autoformat the whole file
+<leader> + y             - yank motion
+<leader> + Y             - yank line
+<leader> + p             - paste after cursor
+<leader> + P             - paste before cursor
 ```
 
 Git:

@@ -40,6 +40,10 @@ Editing:
 
 <Tab>                    - autocomplete
 gg=G                     - autoformat the whole file
+<leader> + y             - yank motion
+<leader> + Y             - yank line
+<leader> + p             - paste after cursor
+<leader> + P             - paste before cursor
 
 -- tmux --
 
