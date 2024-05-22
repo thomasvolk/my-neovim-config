@@ -37,7 +37,7 @@ return {
       local bufopts = { noremap=true, silent=true, buffer=bufnr }
       vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
       -- code lens 
-      if client.resolved_capabilities.code_lens then
+      if client.resolved_capabilities and client.resolved_capabilities.code_lens then
           local codelens = vim.api.nvim_create_augroup(
               'LSPCodeLens',
               { clear = true }
