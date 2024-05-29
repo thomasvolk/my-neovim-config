@@ -1,5 +1,4 @@
-
-function print_help() 
+local function PrintHelp()
     print([[
 
 -- nvim --
@@ -18,6 +17,11 @@ Files:
 :Neotree close           - close NERDTree
 <Leader> + tt            - open terminal
 <Leader> + o             - open outline
+
+Navigation:
+
+gf                       - go to file
+gx                       - open external link
 
 
 Buffers:
@@ -84,7 +88,7 @@ Commands:
 end
 
 
-vim.api.nvim_create_user_command('MyNeovimHelp', print_help,
+vim.api.nvim_create_user_command('MyNeovimHelp', PrintHelp,
   {nargs = 0, desc = 'Print help'}
 )
 vim.keymap.set('n', '<Leader>?', ':MyNeovimHelp<CR>', {})
