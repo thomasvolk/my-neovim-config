@@ -31,6 +31,7 @@ Buffers:
 :bd                      - close buffer
 
 Windows:
+
 <Ctrl> + ww              - switch between windows
 <Ctrl> + w<Arrow>        - navigate to another windows
 
@@ -38,7 +39,6 @@ Git:
 
 :DiffviewOpen            - open divview
 :DiffviewClose           - close divview
-
 
 Editing:
 
@@ -48,6 +48,10 @@ gg=G                     - autoformat the whole file
 <leader> + Y             - yank line
 <leader> + p             - paste after cursor
 <leader> + P             - paste before cursor
+"                        - select from registers
+:reg                     - show registers
+"<N>                     - use register N for the next delete, yank, or put
+
 
 -- tmux --
 
