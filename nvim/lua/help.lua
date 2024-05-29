@@ -22,7 +22,8 @@ Navigation:
 
 gf                       - go to file
 gx                       - open external link
-
+gd                       - go to definition
+gD                       - go to declaration
 
 Buffers:
 
@@ -51,7 +52,13 @@ gg=G                     - autoformat the whole file
 "                        - select from registers
 :reg                     - show registers
 "<N>                     - use register N for the next delete, yank, or put
+"+                       - use system clipboard register for the next delete, yank, or put
 
+Macro:
+
+q<N>                     - start recording for macro N
+q                        - stop recording
+@<N>                     - replay macro
 
 -- tmux --
 
