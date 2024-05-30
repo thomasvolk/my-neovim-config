@@ -24,6 +24,7 @@ gf                       - go to file
 gx                       - open external link
 gd                       - go to definition
 gD                       - go to declaration
+<Ctrl> + o               - navigate back
 
 Buffers:
 
