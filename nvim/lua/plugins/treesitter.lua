@@ -17,7 +17,9 @@ return {
         "ocaml",
         "html",
         "css",
-        "terraform"
+        "terraform",
+        "markdown",
+        "markdown_inline"
       }
     })
   end
