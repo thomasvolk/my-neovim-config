@@ -80,6 +80,12 @@ Commands:
 <Ctrl> + bp               - previous window
 <Ctrl> + bw               - list windows
 <Ctrl> + b&               - close window
+
+<Ctrl> + s                - open session menue
+
+         :kill-session    - kill selected session
+         :new -t <name>   - new session
+
     ]])
 end
 
