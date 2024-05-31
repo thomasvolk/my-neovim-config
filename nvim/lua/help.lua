@@ -1,5 +1,4 @@
-
-function print_help() 
+local function PrintHelp()
     print([[
 
 -- nvim --
@@ -19,6 +18,13 @@ Files:
 <Leader> + tt            - open terminal
 <Leader> + o             - open outline
 
+Navigation:
+
+gf                       - go to file
+gx                       - open external link
+gd                       - go to definition
+gD                       - go to declaration
+<Ctrl> + o               - navigate back
 
 Buffers:
 
@@ -27,6 +33,7 @@ Buffers:
 :bd                      - close buffer
 
 Windows:
+
 <Ctrl> + ww              - switch between windows
 <Ctrl> + w<Arrow>        - navigate to another windows
 
@@ -34,7 +41,6 @@ Git:
 
 :DiffviewOpen            - open divview
 :DiffviewClose           - close divview
-
 
 Editing:
 
@@ -44,6 +50,16 @@ gg=G                     - autoformat the whole file
 <leader> + Y             - yank line
 <leader> + p             - paste after cursor
 <leader> + P             - paste before cursor
+"                        - select from registers
+:reg                     - show registers
+"<N>                     - use register N for the next delete, yank, or put
+"+                       - use system clipboard register for the next delete, yank, or put
+
+Macro:
+
+q<N>                     - start recording for macro N
+q                        - stop recording
+@<N>                     - replay macro
 
 -- tmux --
 
@@ -90,7 +106,7 @@ Commands:
 end
 
 
-vim.api.nvim_create_user_command('MyNeovimHelp', print_help,
+vim.api.nvim_create_user_command('MyNeovimHelp', PrintHelp,
   {nargs = 0, desc = 'Print help'}
 )
 vim.keymap.set('n', '<Leader>?', ':MyNeovimHelp<CR>', {})
