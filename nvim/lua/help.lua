@@ -61,6 +61,12 @@ q<N>                     - start recording for macro N
 q                        - stop recording
 @<N>                     - replay macro
 
+Development:
+
+:Telescope help_tags     - show interactive lua api help
+:lua vim.notify 'Hello'  - display a hello notification on screen
+
+
 -- tmux --
 
 Start tmux:
