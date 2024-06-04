@@ -1,4 +1,13 @@
 
+local jump_to_note = function ()
+  local noteName = vim.fn.expand("<cfile>")
+  if string.find(noteName, "^/[%w-]+") then
+    local path = "." .. noteName .. ".subtext"
+    vim.cmd("e " .. path)
+  end
+end
+
+
 vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
     pattern = "*.subtext",
     callback = function()
@@ -14,5 +23,7 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
         vim.cmd.highlight([[NenoFile guifg=#88EEEE gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
         vim.cmd.syntax([[match NenoFields "\v^:(created-at|updated-at|neno-flags)+:"]])
         vim.cmd.highlight([[NenoFields guifg=#EEEE88 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
+
+        vim.keymap.set('n', '<leader><CR>', function() jump_to_note() end, {noremap = true})
     end
 })
