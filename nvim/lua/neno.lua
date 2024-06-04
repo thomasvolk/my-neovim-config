@@ -25,5 +25,9 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
         vim.cmd.highlight([[NenoFields guifg=#EEEE88 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
 
         vim.keymap.set('n', '<leader><CR>', function() jump_to_note() end, {noremap = true})
+
+        vim.api.nvim_create_user_command('NenoJump', jump_to_note,
+          {nargs = 0, desc = 'Nono reference jump'}
+        )
     end
 })
