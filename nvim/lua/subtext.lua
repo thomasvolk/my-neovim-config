@@ -19,7 +19,8 @@ local jump_to_note = function ()
         local e = column + r_wiki_bracket - 1
         local s = column - l_wiki_bracket + 2
         local link = string.sub(line, s, e)
-        vim.notify(link)
+        local path = "./" .. string.lower(string.gsub(link, "[^A-Za-z0-9_%-]+", "")) .. ".subtext"
+        vim.notify(path)
       end
     end
 
