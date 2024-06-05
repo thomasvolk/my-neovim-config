@@ -4,7 +4,7 @@
 
 local jump_to_note = function ()
   local noteName = vim.fn.expand("<cfile>")
-  if string.find(noteName, "^/[%w-]+") then
+  if string.find(noteName, "^/[A-Za-z0-9_%-]+$") then
     local path = "." .. noteName .. ".subtext"
     vim.cmd("e " .. path)
   else
