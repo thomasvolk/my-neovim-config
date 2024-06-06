@@ -40,6 +40,12 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
         vim.cmd.highlight([[SubtextUrl guifg=#EE8888 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
         vim.cmd.syntax([[match SubtextRef "\v(^|\s)/[a-zA-Z0-9\-_/]+($|\s)"]])
         vim.cmd.highlight([[SubtextRef guifg=#88EE88 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
+        vim.cmd.syntax([[match SubtextWikiLink "\v\[\[.{-}\]\]+"]])
+        vim.cmd.highlight([[SubtextWikiLink guifg=#88EE88 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
+        vim.cmd.syntax([[match SubtextFile "\v(^|\s)/[a-zA-Z0-9\-_/\.]+($|\s)"]])
+        vim.cmd.highlight([[SubtextFile guifg=#88EEEE gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
+        vim.cmd.syntax([[match SubtextFields "\v^:(created-at|updated-at|neno-flags|alias-of)+:"]])
+        vim.cmd.highlight([[SubtextFields guifg=#EEEE88 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
 
         vim.keymap.set('n', '<leader><CR>', function() jump_to_note() end, {noremap = true})
 
