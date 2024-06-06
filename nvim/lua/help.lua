@@ -24,6 +24,8 @@ gf                       - go to file
 gx                       - open external link
 gd                       - go to definition
 gD                       - go to declaration
+gi                       - go to implementation
+<Ctrl> + i               - navigate forward
 <Ctrl> + o               - navigate back
 
 Buffers:
@@ -84,6 +86,12 @@ Reattach to a session:
     tmux attach
     
     tmux a -t session_name
+
+Enable tmux mouse support:
+
+    touch ~/.tmux.conf
+    echo "setw -g mouse on" >> ~/.tmux.conf
+
 
 Commands:
 
