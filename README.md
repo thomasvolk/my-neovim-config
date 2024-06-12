@@ -17,6 +17,11 @@ Required for telescope:
     brew install ripgrep
     ```
 
+* git integration:
+    ```
+    brew install lazygit
+    ```
+
 Required language server:
 
 * pyright
