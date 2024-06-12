@@ -32,7 +32,7 @@ end
 
 local highlight = function(name, pattern, color)
   vim.cmd.syntax([[match ]] .. name ..  [[ "]] .. pattern .. [["]])
-  vim.cmd.highlight(name .. [[ guifg=]] .. color .. [[ gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
+  vim.cmd.highlight(name .. [[ guifg=]] .. color .. [[ gui=bold ]])
 end
 
 
