@@ -2,9 +2,12 @@
 -- subtext navigation module
 -- https://github.com/subconsciousnetwork/subtext/
 
+local P_NOTE_REF = [[^/[A-Za-z0-9_%-]+$]]
+local P_WIKI_LINK = [[[^A-Za-z0-9_%- ]+]]
+
 local jump_to_note = function ()
   local noteName = vim.fn.expand("<cfile>")
-  if string.find(noteName, "^/[A-Za-z0-9_%-]+$") then
+  if string.find(noteName, P_NOTE_REF) then
     local path = "." .. noteName .. ".subtext"
     vim.cmd("e " .. path)
   else
@@ -19,33 +22,41 @@ local jump_to_note = function ()
         local e = column + r_wiki_bracket - 1
         local s = column - l_wiki_bracket + 2
         local link = string.sub(line, s, e)
-        local filtered_link = string.lower(string.gsub(link, "[^A-Za-z0-9_%- ]+", ""))
+        local filtered_link = string.lower(string.gsub(link, P_WIKI_LINK, ""))
         local path = "./" .. string.gsub(filtered_link, "[ ]+", "-") .. ".subtext"
         vim.cmd("e " .. path)
       end
     end
-
-
-    -- vim.notify(left .. "|-----|" .. right)
   end
+end
+
+local highlight = function(name, pattern, color)
+  vim.cmd.syntax([[match ]] .. name ..  [[ "]] .. pattern .. [["]])
+  vim.cmd.highlight(name .. [[ guifg=]] .. color .. [[ gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
 end
 
 
 vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
     pattern = "*.subtext",
     callback = function()
-        vim.cmd.syntax([[match SubtextHeading "\v^#.+$"]])
-        vim.cmd.highlight([[SubtextHeading guifg=#8888FF gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
-        vim.cmd.syntax([[match SubtextUrl "\v(^|\s)https?://[/\-a-zA-Z0-9@:%._\+~#=\.]+($|\s)"]])
-        vim.cmd.highlight([[SubtextUrl guifg=#EE8888 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
-        vim.cmd.syntax([[match SubtextRef "\v(^|\s)/[a-zA-Z0-9\-_/]+($|\s)"]])
-        vim.cmd.highlight([[SubtextRef guifg=#88EE88 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
-        vim.cmd.syntax([[match SubtextWikiLink "\v\[\[.{-}\]\]+"]])
-        vim.cmd.highlight([[SubtextWikiLink guifg=#88EE88 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
-        vim.cmd.syntax([[match SubtextFile "\v(^|\s)/[a-zA-Z0-9\-_/\.]+($|\s)"]])
-        vim.cmd.highlight([[SubtextFile guifg=#88EEEE gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
-        vim.cmd.syntax([[match SubtextFields "\v^:(created-at|updated-at|neno-flags|alias-of)+:"]])
-        vim.cmd.highlight([[SubtextFields guifg=#EEEE88 gui=bold ctermfg=198 cterm=bold ctermbg=darkgreen]])
+        local C_HEADING = "#EEEE88"
+        local C_FILE = "#88EE88"
+        local C_URL = C_FILE
+        local C_REF = "#88EEEE"
+        local C_LINK = C_REF
+        local C_FIELD = "#8888FF"
+
+        highlight("SubtextHeading", [[\v^#.+$]], C_HEADING)
+
+        highlight("SubtextUrl", [[\v(^|\s)https?://[/\-a-zA-Z0-9@:%._\+~#=\.]+($|\s)"]], C_URL)
+
+        highlight("SubtextRef", [[\v(^|\s)/[a-zA-Z0-9\-_/]+($|\s)"]], C_REF)
+
+        highlight("SubtextWikiLink", [[\v\[\[.{-}\]\]+"]], C_LINK)
+
+        highlight("SubtextFile", [[\v(^|\s)/[a-zA-Z0-9\-_/]+\.[a-zA-Z0-9\-_/]+($|\s)"]], C_FILE)
+
+        highlight("SubtextFields", [[\v^:(created-at|updated-at|neno-flags|alias-of)+:"]], C_FIELD)
 
         vim.keymap.set('n', '<leader><CR>', function() jump_to_note() end, {noremap = true})
 
