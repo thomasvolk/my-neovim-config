@@ -3,13 +3,32 @@
 -- https://github.com/subconsciousnetwork/subtext/
 
 local P_NOTE_REF = [[^/[A-Za-z0-9_%-]+$]]
+local P_NOTE_FILE = [[^/[/A-Za-z0-9_%-]+%.[A-Za-z0-9_%-]+$]]
 local P_WIKI_LINK = [[[^A-Za-z0-9_%- ]+]]
+local P_URL = [[https?%:%/%/[%/%-a-zA-Z0-9%.=~#%[%]%+%%&%?%$]+]]
+
+
+local open = function(resource)
+  local cmd = "xdg-open" -- Command for Linux
+  if vim.fn.has("win32") == 1 then
+    cmd = "start"
+  elseif vim.fn.has("mac") == 1 then
+    cmd = "open"
+  end
+  vim.fn.jobstart(cmd .. " " .. resource)
+end
+
 
 local jump_to_note = function ()
   local noteName = vim.fn.expand("<cfile>")
   if string.find(noteName, P_NOTE_REF) then
     local path = "." .. noteName .. ".subtext"
     vim.cmd("e " .. path)
+  elseif string.find(noteName, P_NOTE_FILE) then
+    local path = "." .. noteName
+    open(path)
+  elseif string.find(noteName, P_URL) then
+    open(noteName)
   else
     local column = vim.api.nvim_win_get_cursor(0)[2]
     local line = vim.api.nvim_get_current_line()
@@ -30,6 +49,7 @@ local jump_to_note = function ()
   end
 end
 
+
 local highlight = function(name, pattern, color)
   vim.cmd.syntax([[match ]] .. name ..  [[ "]] .. pattern .. [["]])
   vim.cmd.highlight(name .. [[ guifg=]] .. color .. [[ gui=bold ]])
@@ -48,7 +68,7 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
 
         highlight("SubtextHeading", [[\v^#.+$]], C_HEADING)
 
-        highlight("SubtextUrl", [[\v(^|\s)https?://[/\-a-zA-Z0-9@:%._\+~#=\.]+($|\s)"]], C_URL)
+        highlight("SubtextUrl", [[\v(^|\s)https?://[/\-a-zA-Z0-9@:%._\+~#=\.&%\?]+($|\s)"]], C_URL)
 
         highlight("SubtextRef", [[\v(^|\s)/[a-zA-Z0-9\-_/]+($|\s)"]], C_REF)
 
