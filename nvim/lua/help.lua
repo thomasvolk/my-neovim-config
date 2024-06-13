@@ -39,10 +39,9 @@ Windows:
 <Ctrl> + ww              - switch between windows
 <Ctrl> + w<Arrow>        - navigate to another windows
 
-Git:
+Terminal:
 
-:DiffviewOpen            - open divview
-:DiffviewClose           - close divview
+<Ctrl> + x               - open terminal window
 
 Editing:
 
@@ -56,6 +55,10 @@ gg=G                     - autoformat the whole file
 :reg                     - show registers
 "<N>                     - use register N for the next delete, yank, or put
 "+                       - use system clipboard register for the next delete, yank, or put
+
+lsp:
+
+<leader> + r             - rename variable and all references
 
 Macro:
 
