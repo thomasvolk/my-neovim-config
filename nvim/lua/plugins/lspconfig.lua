@@ -25,6 +25,9 @@ return {
 
     local lsp = require("lspconfig")
 
+    -- shortcuts
+    vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end, {noremap = true})
+
     -- python-lsp
 
     lsp.pyright.setup {

@@ -6,6 +6,7 @@ local P_NOTE_REF = [[^/[A-Za-z0-9_%-]+$]]
 local P_NOTE_FILE = [[^/[/A-Za-z0-9_%-]+%.[A-Za-z0-9_%-]+$]]
 local P_WIKI_LINK = [[[^A-Za-z0-9_%- ]+]]
 local P_URL = [[https?%:%/%/[%/%-a-zA-Z0-9%.=~#%[%]%+%%&%?%$]+]]
+local P_ALIAS = [[^%:alias%-of%:([A-Za-z0-9_%-]+)$]]
 
 
 local open = function(resource)
@@ -20,30 +21,36 @@ end
 
 
 local jump_to_note = function ()
-  local noteName = vim.fn.expand("<cfile>")
-  if string.find(noteName, P_NOTE_REF) then
-    local path = "." .. noteName .. ".subtext"
+  local cfile_value = vim.fn.expand("<cfile>")
+  if string.find(cfile_value, P_NOTE_REF) then
+    local path = "." .. cfile_value .. ".subtext"
     vim.cmd("e " .. path)
-  elseif string.find(noteName, P_NOTE_FILE) then
-    local path = "." .. noteName
+  elseif string.find(cfile_value, P_NOTE_FILE) then
+    local path = "." .. cfile_value
     open(path)
-  elseif string.find(noteName, P_URL) then
-    open(noteName)
+  elseif string.find(cfile_value, P_URL) then
+    open(cfile_value)
   else
     local column = vim.api.nvim_win_get_cursor(0)[2]
     local line = vim.api.nvim_get_current_line()
-    local right = string.sub(line, column + 1, string.len(line))
-    local left = string.sub(line, 0, column)
-    local r_wiki_bracket = string.find(right, "%]%]")
-    if r_wiki_bracket then
-      local l_wiki_bracket = string.find( (left):reverse(), "%[%[")
-      if l_wiki_bracket then
-        local e = column + r_wiki_bracket - 1
-        local s = column - l_wiki_bracket + 2
-        local link = string.sub(line, s, e)
-        local filtered_link = string.lower(string.gsub(link, P_WIKI_LINK, ""))
-        local path = "./" .. string.gsub(filtered_link, "[ ]+", "-") .. ".subtext"
-        vim.cmd("e " .. path)
+    local alias_of = string.match(line, P_ALIAS)
+    if alias_of then
+      local path = "./" .. alias_of .. ".subtext"
+      vim.cmd("e " .. path)
+    else
+      local right = string.sub(line, column + 1, string.len(line))
+      local left = string.sub(line, 0, column)
+      local r_wiki_bracket = string.find(right, "%]%]")
+      if r_wiki_bracket then
+        local l_wiki_bracket = string.find( (left):reverse(), "%[%[")
+        if l_wiki_bracket then
+          local e = column + r_wiki_bracket - 1
+          local s = column - l_wiki_bracket + 2
+          local link = string.sub(line, s, e)
+          local filtered_link = string.lower(string.gsub(link, P_WIKI_LINK, ""))
+          local path = "./" .. string.gsub(filtered_link, "[ ]+", "-") .. ".subtext"
+          vim.cmd("e " .. path)
+        end
       end
     end
   end
