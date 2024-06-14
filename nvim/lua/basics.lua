@@ -1,13 +1,13 @@
 -- leaser key
 vim.g.mapleader = ' '
 
--- tab behaviour
+-- tab behavior
 vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 
--- show linenumbers
+-- show line numbers
 vim.wo.number = true
 
 -- Yank into system clipboard

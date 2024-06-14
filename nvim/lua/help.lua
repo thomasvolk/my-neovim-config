@@ -55,6 +55,7 @@ gg=G                     - autoformat the whole file
 :reg                     - show registers
 "<N>                     - use register N for the next delete, yank, or put
 "+                       - use system clipboard register for the next delete, yank, or put
+z=                       - see the spell check suggestions
 
 lsp:
 
