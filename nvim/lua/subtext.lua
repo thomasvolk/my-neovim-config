@@ -92,3 +92,9 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
         )
     end
 })
+
+vim.filetype.add({
+  extension = {
+    subtext = "markdown"
+  }
+})
