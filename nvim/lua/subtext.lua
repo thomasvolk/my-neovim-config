@@ -2,6 +2,7 @@
 -- subtext navigation module
 -- https://github.com/subconsciousnetwork/subtext/
 
+
 local P_NOTE_REF = [[^/[A-Za-z0-9_%-]+$]]
 local P_NOTE_FILE = [[^/[/A-Za-z0-9_%-]+%.[A-Za-z0-9_%-]+$]]
 local P_WIKI_LINK = [[[^A-Za-z0-9_%- ]+]]
@@ -66,6 +67,7 @@ end
 vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
     pattern = "*.subtext",
     callback = function()
+        vim.bo.filetype = 'subtext'
         local C_HEADING = "#EEEE88"
         local C_FILE = "#88EE88"
         local C_URL = C_FILE
@@ -90,11 +92,12 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
         vim.api.nvim_create_user_command('SubtextJump', jump_to_note,
           {nargs = 0, desc = 'follow subtext reference'}
         )
+
     end
 })
 
 vim.filetype.add({
   extension = {
-    subtext = "markdown"
+    subtext = "subtext"
   }
 })
