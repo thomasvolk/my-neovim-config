@@ -1,6 +1,18 @@
-
 -- subtext navigation module
 -- https://github.com/subconsciousnetwork/subtext/
+
+local cmp = require('cmp')
+local custom_source = require('subtext_cmp_source')
+
+cmp.register_source('subtext_cmp_source', custom_source.new())
+
+cmp.setup.filetype('subtext', {
+  sources = cmp.config.sources({
+    { name = 'subtext_cmp_source' },
+    { name = 'buffer' },
+    { name = 'path' },
+  })
+})
 
 
 local P_NOTE_REF = [[^/[A-Za-z0-9_%-]+$]]
