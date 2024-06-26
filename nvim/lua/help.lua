@@ -67,6 +67,10 @@ q<N>                     - start recording for macro N
 q                        - stop recording
 @<N>                     - replay macro
 
+Copilot:
+
+F2                       - accept suggestion
+
 Development:
 
 :Telescope help_tags     - show interactive lua api help
