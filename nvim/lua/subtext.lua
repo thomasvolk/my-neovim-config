@@ -15,8 +15,8 @@ cmp.setup.filetype('subtext', {
 })
 
 
-local P_NOTE_REF = [[^/[A-Za-z0-9_%-%/]+$]]
-local P_NOTE_FILE = [[^/[/A-Za-z0-9_%-]+%.[A-Za-z0-9_%-]+$]]
+local P_NOTE_REF = [[^%.?/[A-Za-z0-9_%-%/]+$]]
+local P_NOTE_FILE = [[^%.?%.?/[/A-Za-z0-9_%-]+%.[A-Za-z0-9_%-]+$]]
 local P_WIKI_LINK = [[[^A-Za-z0-9_%- %/]+]]
 local P_URL = [[https?%:%/%/[%/%-a-zA-Z0-9%.=~#%[%]%+%%&%?%$]+]]
 local P_ALIAS = [[^%:alias%-of%:([A-Za-z0-9_%-]+)$]]
@@ -24,6 +24,19 @@ local P_ALIAS = [[^%:alias%-of%:([A-Za-z0-9_%-]+)$]]
 
 local trim = function(s)
   return s:gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+
+local startswith = function(s, start)
+    return s.sub(1, #start) == start
+end
+
+
+local nomalize_path = function(path)
+  if startswith(path, "/") then
+    return "." .. path
+  end
+  return vim.fn.expand("%:p:h") .. "/" .. path
 end
 
 
@@ -41,11 +54,9 @@ end
 local jump_to_note = function ()
   local cfile_value = vim.fn.expand("<cfile>")
   if string.find(cfile_value, P_NOTE_REF) then
-    local path = "." .. cfile_value .. ".subtext"
-    vim.cmd("e " .. path)
+    vim.cmd("e " .. nomalize_path(cfile_value) .. ".subtext")
   elseif string.find(cfile_value, P_NOTE_FILE) then
-    local path = "." .. cfile_value
-    open(path)
+    open(nomalize_path(cfile_value))
   elseif string.find(cfile_value, P_URL) then
     open(cfile_value)
   else
@@ -97,11 +108,11 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
 
         highlight("SubtextUrl", [[\v(^|\s)https?://[/\-a-zA-Z0-9@:%._\+~#=\.&%\?]+($|\s)"]], C_URL)
 
-        highlight("SubtextRef", [[\v(^|\s)/[a-zA-Z0-9\-_/]+($|\s)"]], C_REF)
+        highlight("SubtextRef", [[\v(^|\s)\.?/[a-zA-Z0-9\-_/]+($|\s)"]], C_REF)
 
         highlight("SubtextWikiLink", [[\v\[\[.{-}\]\]+"]], C_LINK)
 
-        highlight("SubtextFile", [[\v(^|\s)/[a-zA-Z0-9\-_/]+\.[a-zA-Z0-9\-_/]+($|\s)"]], C_FILE)
+        highlight("SubtextFile", [[\v(^|\s)\.?\.?/[a-zA-Z0-9\-_/]+\.[a-zA-Z0-9\-_/]+($|\s)"]], C_FILE)
 
         highlight("SubtextFields", [[\v^:(created-at|updated-at|neno-flags|alias-of)+:"]], C_FIELD)
 
