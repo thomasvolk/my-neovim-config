@@ -15,9 +15,9 @@ cmp.setup.filetype('subtext', {
 })
 
 
-local P_NOTE_REF = [[^/[A-Za-z0-9_%-]+$]]
+local P_NOTE_REF = [[^/[A-Za-z0-9_%-%/]+$]]
 local P_NOTE_FILE = [[^/[/A-Za-z0-9_%-]+%.[A-Za-z0-9_%-]+$]]
-local P_WIKI_LINK = [[[^A-Za-z0-9_%- ]+]]
+local P_WIKI_LINK = [[[^A-Za-z0-9_%- %/]+]]
 local P_URL = [[https?%:%/%/[%/%-a-zA-Z0-9%.=~#%[%]%+%%&%?%$]+]]
 local P_ALIAS = [[^%:alias%-of%:([A-Za-z0-9_%-]+)$]]
 
@@ -61,7 +61,8 @@ local jump_to_note = function ()
           local s = column - l_wiki_bracket + 2
           local link = string.sub(line, s, e)
           local filtered_link = string.lower(string.gsub(link, P_WIKI_LINK, ""))
-          local path = "./" .. string.gsub(filtered_link, "[ ]+", "-") .. ".subtext"
+          local filtered_link_with_trimed_slashes = "./" .. string.gsub(filtered_link, "[ ]*/[ ]*", "/")
+          local path = "./" .. string.gsub(filtered_link_with_trimed_slashes, "[ ]+", "-") .. ".subtext"
           vim.cmd("e " .. path)
         end
       end
