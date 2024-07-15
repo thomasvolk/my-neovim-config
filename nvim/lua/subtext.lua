@@ -22,6 +22,11 @@ local P_URL = [[https?%:%/%/[%/%-a-zA-Z0-9%.=~#%[%]%+%%&%?%$]+]]
 local P_ALIAS = [[^%:alias%-of%:([A-Za-z0-9_%-]+)$]]
 
 
+local trim = function(s)
+  return s:gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+
 local open = function(resource)
   local cmd = "xdg-open" -- Command for Linux
   if vim.fn.has("win32") == 1 then
@@ -60,7 +65,7 @@ local jump_to_note = function ()
           local e = column + r_wiki_bracket - 1
           local s = column - l_wiki_bracket + 2
           local link = string.sub(line, s, e)
-          local filtered_link = string.lower(string.gsub(link, P_WIKI_LINK, ""))
+          local filtered_link = trim(string.lower(string.gsub(link, P_WIKI_LINK, "")))
           local filtered_link_with_trimed_slashes = "./" .. string.gsub(filtered_link, "[ ]*/[ ]*", "/")
           local path = "./" .. string.gsub(filtered_link_with_trimed_slashes, "[ ]+", "-") .. ".subtext"
           vim.cmd("e " .. path)
