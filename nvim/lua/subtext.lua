@@ -106,15 +106,15 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
 
         highlight("SubtextHeading", [[\v^#.+$]], C_HEADING)
 
-        highlight("SubtextUrl", [[\v(^|\s)https?://[/\-a-zA-Z0-9@:%._\+~#=\.&%\?]+($|\s)"]], C_URL)
+        highlight("SubtextUrl", [[\v(^|\s)https?://[/\-a-zA-Z0-9@:%._\+~#=\.&%\?]+($|\s)]], C_URL)
 
-        highlight("SubtextRef", [[\v(^|\s)\.?/[a-zA-Z0-9\-_/]+($|\s)"]], C_REF)
+        highlight("SubtextRef", [[\v(^|\s)\.?/[a-zA-Z0-9\-_/]+($|\s)]], C_REF)
 
-        highlight("SubtextWikiLink", [[\v\[\[.{-}\]\]+"]], C_LINK)
+        highlight("SubtextWikiLink", [[\v\[\[.{-}\]\]+]], C_LINK)
 
-        highlight("SubtextFile", [[\v(^|\s)\.?\.?/[a-zA-Z0-9\-_/]+\.[a-zA-Z0-9\-_/]+($|\s)"]], C_FILE)
+        highlight("SubtextFile", [[\v(^|\s)\.?\.?/[a-zA-Z0-9\-_/]+\.[a-zA-Z0-9\-_/]+($|\s)]], C_FILE)
 
-        highlight("SubtextFields", [[\v^:(created-at|updated-at|neno-flags|alias-of)+:"]], C_FIELD)
+        highlight("SubtextFields", [[\v^:(created-at|updated-at|neno-flags|alias-of)+:]], C_FIELD)
 
         vim.keymap.set('n', '<leader><CR>', function() jump_to_note() end, {noremap = true})
 
