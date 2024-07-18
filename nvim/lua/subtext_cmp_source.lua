@@ -34,7 +34,6 @@ function source:complete(request, callback)
   local line = request.context.cursor_before_line
   if line == ":alias-of:" or
      string.sub(line, -1) == "/" or
-     string.sub(line, -2) == "./" or
      string.sub(line, -2) == "[["
   then
     local root = vim.fn.getcwd()
