@@ -15,7 +15,7 @@ cmp.setup.filetype('subtext', {
 })
 
 
-local P_NOTE_REF = [[^%.?/[A-Za-z0-9_%-%/]+$]]
+local P_NOTE_REF = [[^/[A-Za-z0-9_%-%/]+$]]
 local P_NOTE_FILE = [[^%.?%.?/[/A-Za-z0-9_%-]+%.[A-Za-z0-9_%-]+$]]
 local P_WIKI_LINK = [[[^A-Za-z0-9_%- %/]+]]
 local P_URL = [[https?%:%/%/[%/%-a-zA-Z0-9%.=~#%[%]%+%%&%?%$]+]]
@@ -27,16 +27,8 @@ local trim = function(s)
 end
 
 
-local startswith = function(s, start)
-    return s.sub(1, #start) == start
-end
-
-
 local nomalize_path = function(path)
-  if startswith(path, "/") then
-    return "." .. path
-  end
-  return vim.fn.expand("%:p:h") .. "/" .. path
+  return "." .. path
 end
 
 
@@ -108,7 +100,7 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
 
         highlight("SubtextUrl", [[\v(^|\s)https?://[/\-a-zA-Z0-9@:%._\+~#=\.&%\?]+($|\s)]], C_URL)
 
-        highlight("SubtextRef", [[\v(^|\s)\.?/[a-zA-Z0-9\-_/]+($|\s)]], C_REF)
+        highlight("SubtextRef", [[\v(^|\s)/[a-zA-Z0-9\-_/]+($|\s)]], C_REF)
 
         highlight("SubtextWikiLink", [[\v\[\[.{-}\]\]+]], C_LINK)
 

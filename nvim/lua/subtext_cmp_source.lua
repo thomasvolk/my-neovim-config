@@ -38,9 +38,6 @@ function source:complete(request, callback)
      string.sub(line, -2) == "[["
   then
     local root = vim.fn.getcwd()
-    if string.sub(line, -2) == "./" then
-      root = vim.fn.expand("%:p:h")
-    end
     local notes = list_subtext_files(root)
     for _, note in ipairs(notes) do
       table.insert(items, { label = note, kind = require('cmp.types').lsp.CompletionItemKind.Reference })
