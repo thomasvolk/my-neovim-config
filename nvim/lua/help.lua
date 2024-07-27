@@ -70,6 +70,8 @@ q                            - stop recording
 Copilot:
 
 F2                           - accept suggestion
+:Copilot disable             - disable Copilot
+:Copilot enable              _ enable Copilot
 
 Development:
 
