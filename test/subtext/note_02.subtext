@@ -1,0 +1,13 @@
+# note 2
+
+/note
+
+/dir_01/note_03
+
+[[ dir_01 // note_03 ]]
+
+[[ dir_01 // note_03 ]]
+
+/dir_01/note_04-test
+
+[[ dir_01 // note_04 / test ]]

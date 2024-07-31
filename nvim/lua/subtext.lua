@@ -68,9 +68,11 @@ local jump_to_note = function ()
           local e = column + r_wiki_bracket - 1
           local s = column - l_wiki_bracket + 2
           local link = string.sub(line, s, e)
-          local filtered_link = trim(string.lower(string.gsub(link, P_WIKI_LINK, "")))
-          local filtered_link_with_trimed_slashes = "./" .. string.gsub(filtered_link, "[ ]*//[ ]*", "/")
-          local path = "./" .. string.gsub(filtered_link_with_trimed_slashes, "[ ]+", "-") .. ".subtext"
+          link = trim(string.lower(string.gsub(link, P_WIKI_LINK, "")))
+          link = string.gsub(link, "[ ]*%/%/[ ]*", "#")
+          link = string.gsub(link, "[ %/]+", "-")
+          link = string.gsub(link, "[#]+", "/")
+          local path = "./" .. link .. ".subtext"
           vim.cmd("e " .. path)
         end
       end
