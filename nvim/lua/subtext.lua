@@ -106,7 +106,7 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
 
         highlight("SubtextWikiLink", [[\v\[\[.{-}\]\]+]], C_LINK)
 
-        highlight("SubtextFile", [[\v(^|\s)\.?\.?/[a-zA-Z0-9\-_/]+\.[a-zA-Z0-9\-_/]+($|\s)]], C_FILE)
+        highlight("SubtextFile", [[\v(^|\s)\.?\.?/[a-zA-Z0-9\-_/]+(\.[a-zA-Z0-9\-_/]+)+($|\s)]], C_FILE)
 
         highlight("SubtextFields", [[\v^:(created-at|updated-at|neno-flags|alias-of)+:]], C_FIELD)
 
