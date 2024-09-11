@@ -16,7 +16,7 @@ cmp.setup.filetype('subtext', {
 
 
 local P_NOTE_REF = [[^/[A-Za-z0-9_%-%/]+$]]
-local P_NOTE_FILE = [[^%.?%.?/[/A-Za-z0-9_%-]+%.[A-Za-z0-9_%-]+$]]
+local P_NOTE_FILE = [[^/[/A-Za-z0-9_%-%.]+%.[A-Za-z0-9_%-]+$]]
 local P_WIKI_LINK = [[[^A-Za-z0-9_%- %/]+]]
 local P_URL = [[https?%:%/%/[%/%-a-zA-Z0-9%.=~#%[%]%+%%&%?%$]+]]
 local P_ALIAS = [[^%:alias%-of%:([A-Za-z0-9_%-]+)$]]
@@ -48,6 +48,7 @@ local jump_to_note = function ()
   if string.find(cfile_value, P_NOTE_REF) then
     vim.cmd("e " .. nomalize_path(cfile_value) .. ".subtext")
   elseif string.find(cfile_value, P_NOTE_FILE) then
+    vim.notify("Opening file: " .. cfile_value)
     open(nomalize_path(cfile_value))
   elseif string.find(cfile_value, P_URL) then
     open(cfile_value)
@@ -106,7 +107,7 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
 
         highlight("SubtextWikiLink", [[\v\[\[.{-}\]\]+]], C_LINK)
 
-        highlight("SubtextFile", [[\v(^|\s)\.?\.?/[a-zA-Z0-9\-_/]+\.[a-zA-Z0-9\-_/]+($|\s)]], C_FILE)
+        highlight("SubtextFile", [[\v(^|\s)\.?\.?/[a-zA-Z0-9\-_/]+(\.[a-zA-Z0-9\-_/]+)+($|\s)]], C_FILE)
 
         highlight("SubtextFields", [[\v^:(created-at|updated-at|neno-flags|alias-of)+:]], C_FIELD)
 
