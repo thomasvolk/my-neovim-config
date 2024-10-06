@@ -14,7 +14,6 @@ return {
         "bash",
         "xml",
         "yaml",
-        "ocaml",
         "html",
         "css",
         "terraform",
