@@ -109,7 +109,7 @@ vim.api.nvim_create_autocmd({"TextChanged", "BufEnter", "BufWinEnter"}, {
 
         highlight("SubtextFile", [[\v(^|\s)\.?\.?/[a-zA-Z0-9\-_/]+(\.[a-zA-Z0-9\-_/]+)+($|\s)]], C_FILE)
 
-        highlight("SubtextFields", [[\v^:(created-at|updated-at|neno-flags|alias-of)+:]], C_FIELD)
+        highlight("SubtextFields", [[\v^:(created-at|updated-at|neno-flags|alias-of|file|size)+:]], C_FIELD)
 
         vim.keymap.set('n', '<leader><CR>', function() jump_to_note() end, {noremap = true})
 
