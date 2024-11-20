@@ -78,6 +78,12 @@ Development:
 :Telescope help_tags         - show interactive lua api help
 :lua vim.notify 'Hello'      - display a hello notification on screen
 
+Git:
+
+:Git log                     - show git log
+:Git blame                   - show git blame
+:Git diff                    - show git diff
+
 
 -- tmux --
 
