@@ -83,6 +83,7 @@ Git:
 :Git log                     - show git log
 :Git blame                   - show git blame
 :Git diff                    - show git diff
+:GV                          - open git browser
 
 
 -- tmux --
