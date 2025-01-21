@@ -38,6 +38,9 @@ Windows:
 
 <Ctrl> + ww                  - switch between windows
 <Ctrl> + w<Arrow>            - navigate to another windows
+<Ctrl> + ws                  - split horizontally
+<Ctrl> + wv                  - split vertically
+<Ctrl> + wq                  - close window
 
 Terminal:
 
@@ -140,4 +143,5 @@ end
 vim.api.nvim_create_user_command('MyNeovimHelp', PrintHelp,
   {nargs = 0, desc = 'Print help'}
 )
+vim.keymap.set('n', '<F2>', ':MyNeovimHelp<CR>', {})
 vim.keymap.set('n', '<Leader>?', ':MyNeovimHelp<CR>', {})
