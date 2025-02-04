@@ -62,6 +62,18 @@ return {
 
     })
 
+    lsp.elmls = {
+		  cmd = { "elm-language-server" },
+		  filetypes = { "elm" },
+		  init_options = {
+			  elmAnalyseTrigger = "change",
+			  elmFormatPath = "elm-format",
+			  elmPath = "elm",
+			  elmTestPath = "elm-test"
+		  },
+		  root_dir = lsp.util.root_pattern("elm.json")
+	  }
+
     -- html
 
     lsp.html.setup({
