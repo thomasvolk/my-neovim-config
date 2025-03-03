@@ -60,6 +60,12 @@ gg=G                         - autoformat the whole file
 "+                           - use system clipboard register for the next delete, yank, or put
 z=                           - see the spell check suggestions
 
+Search/Replace:
+
+:s/foo/bar/g                 - replace foo with bar in the current line
+:%s/foo/bar/g                - replace foo with bar in the whole file
+:s/Foo/bar/gi                - replace foo with bar case insensitive
+
 lsp:
 
 <leader> + r                 - rename variable and all references
