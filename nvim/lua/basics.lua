@@ -20,3 +20,6 @@ vim.keymap.set('n', '<leader>P', '"+P')  -- paste before cursor
 -- spellcheck
 vim.opt.spelllang = {'en_us', 'de_de'}
 vim.opt.spell = true
+
+-- inline messages
+vim.diagnostic.config({ virtual_text = true })
