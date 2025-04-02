@@ -4,6 +4,10 @@ return {
   name = "catppuccin",
   priority = 1000,
   config = function()
-    vim.cmd.colorscheme "catppuccin-latte"
+    if os.getenv("NVIM_THEME") == "dark" then
+      vim.cmd.colorscheme "catppuccin-frappe"
+    else
+      vim.cmd.colorscheme "catppuccin-latte"
+    end
   end
 }
