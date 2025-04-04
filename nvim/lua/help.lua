@@ -24,6 +24,7 @@ gf                           - go to file
 gx                           - open external link
 gd                           - go to definition
 gD                           - go to declaration
+gt                           - go to type definition
 gi                           - go to implementation
 <Ctrl> + i                   - navigate forward
 <Ctrl> + o                   - navigate back
