@@ -11,10 +11,9 @@ return {
     require('mason').setup({})
     local mason_lspconfig = require('mason-lspconfig')
     mason_lspconfig.setup {
-        ensure_installed = { "pyright" },
+        ensure_installed = { "pylsp" },
         lua_ls = function()
-          local lua_opts = lsp_zero.nvim_lua_ls()
-          require('lspconfig').lua_ls.setup(lua_opts)
+          require('lspconfig').lua_ls.setup({})
         end
     }
 
@@ -24,10 +23,30 @@ return {
     vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end, {noremap = true})
 
     -- python-lsp
+    -- check if the project directory includes a pylintrc file
+    local cwd = vim.fn.getcwd()
+    local pylintrc = vim.fn.glob(cwd .. "/.pylintrc")
+    local has_pylintrc = pylintrc ~= ""
+    local args = {}
 
-    lsp.pyright.setup {
-        capabilities = capabilities,
-    }
+    if has_pylintrc then
+      vim.notify("Using pylintrc file: " .. pylintrc)
+      args = { "--rcfile", pylintrc }
+    end
+
+    lsp.pylsp.setup({
+      settings = {
+        pylsp = {
+          plugins = {
+            pylint = {
+              args = args,
+              enabled = true,
+            },
+            pycodestyle = { enabled = false }, -- Disable other linters if needed
+          },
+        },
+      },
+    })
 
     -- ocaml-lsp
 
