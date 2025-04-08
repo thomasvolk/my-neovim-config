@@ -11,10 +11,9 @@ return {
     require('mason').setup({})
     local mason_lspconfig = require('mason-lspconfig')
     mason_lspconfig.setup {
-        ensure_installed = { "pyright" },
+        ensure_installed = { "pylsp" },
         lua_ls = function()
-          local lua_opts = lsp_zero.nvim_lua_ls()
-          require('lspconfig').lua_ls.setup(lua_opts)
+          require('lspconfig').lua_ls.setup({})
         end
     }
 
@@ -25,9 +24,18 @@ return {
 
     -- python-lsp
 
-    lsp.pyright.setup {
-        capabilities = capabilities,
-    }
+    lsp.pylsp.setup({
+      settings = {
+        pylsp = {
+          plugins = {
+            pylint = {
+              enabled = true,
+            },
+            pycodestyle = { enabled = false }, -- Disable other linters if needed
+          },
+        },
+      },
+    })
 
     -- ocaml-lsp
 
