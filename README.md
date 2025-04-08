@@ -24,8 +24,8 @@ Required for telescope:
 
 Required language server:
 
-* pyright
-    `pip3 install pyright`
+* pylint
+    `pip3 install python-lsp-server pylint`
 
 * OCaml
     ```

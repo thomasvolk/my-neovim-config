@@ -23,12 +23,23 @@ return {
     vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end, {noremap = true})
 
     -- python-lsp
+    -- check if the project directory includes a pylintrc file
+    local cwd = vim.fn.getcwd()
+    local pylintrc = vim.fn.glob(cwd .. "/.pylintrc")
+    local has_pylintrc = pylintrc ~= ""
+    local args = {}
+
+    if has_pylintrc then
+      vim.notify("Using pylintrc file: " .. pylintrc)
+      args = { "--rcfile", pylintrc }
+    end
 
     lsp.pylsp.setup({
       settings = {
         pylsp = {
           plugins = {
             pylint = {
+              args = args,
               enabled = true,
             },
             pycodestyle = { enabled = false }, -- Disable other linters if needed
