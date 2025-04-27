@@ -9,6 +9,8 @@ You have to have the following software installed
 * Python3
 * node
 * git
+* fd
+* luarocks
 
 Required for telescope:
 
@@ -29,9 +31,7 @@ Required language server:
 
 * OCaml
     ```
-    opam install ocamlformat-rpc
-    opam install ocamlformat
-    opam install ocaml-lsp-server
+    opam install ocamlformat-rpc ocamlformat ocaml-lsp-server
     ```
 * Terraform
     ```
@@ -62,6 +62,19 @@ Checkout the repo and link it to `$HOME/.config/nvim`:
     mv nvim nvim_bak
     git clone git@...my-neovim-config
     ln -s my-neovim-config/nvim nvim
+
+## tmux
+
+Install tmux:
+
+    brew install tmux
+
+Configure tmux:
+
+    touch ~/.tmux.conf
+    echo "setw -g mouse on\n" >> ~/.tmux.conf
+    echo "set-option -g focus-events on\n" >> ~/.tmux.conf
+
 
 ## Alternative configs
 
