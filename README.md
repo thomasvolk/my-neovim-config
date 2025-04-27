@@ -10,6 +10,7 @@ You have to have the following software installed
 * node
 * git
 * fd
+* luarocks
 
 Required for telescope:
 
