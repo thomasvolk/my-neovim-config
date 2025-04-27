@@ -114,12 +114,6 @@ Reattach to a session:
     
     tmux a -t session_name
 
-Enable tmux mouse support:
-
-    touch ~/.tmux.conf
-    echo "setw -g mouse on" >> ~/.tmux.conf
-
-
 Commands:
 
 <Ctrl> + bd                   - detach session
