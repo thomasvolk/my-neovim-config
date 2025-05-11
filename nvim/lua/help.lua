@@ -23,7 +23,8 @@ Telescope:
 Within the Telescope view:
 
     <Ctrl>   + q                         - create a quickfix list
-    :cfdo s/SEARCH_TERM/REPLACEMENT/g    - seasrch and replace project wide
+    :cfdo s/SEARCH/REPL/g                - seasrch and replace project wide
+    :cfdo s/SEARCH/REPL/g | update       - same as above but save the changes directly
 
 
 Navigation:
