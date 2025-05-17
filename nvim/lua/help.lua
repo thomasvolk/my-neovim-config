@@ -26,6 +26,10 @@ Within the Telescope view:
     :cfdo s/SEARCH/REPL/g                - seasrch and replace project wide
     :cfdo s/SEARCH/REPL/g | update       - same as above but save the changes directly
 
+Search and replace:
+
+<Leader> + r                 - open Groug Far search and replace
+
 
 Navigation:
 
