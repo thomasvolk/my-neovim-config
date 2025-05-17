@@ -107,6 +107,7 @@ Git:
 :Git blame                   - show git blame
 :Git diff                    - show git diff
 :GV                          - open git browser
+<Leader> + lg                - opens lazygit
     ]])
 end
 
