@@ -108,6 +108,11 @@ Git:
 :Git diff                    - show git diff
 :GV                          - open git browser
 <Leader> + lg                - opens lazygit
+
+Emoticons:
+
+  ¯\_(ツ)_/¯
+
     ]])
 end
 
