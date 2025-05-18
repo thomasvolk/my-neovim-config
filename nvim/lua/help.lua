@@ -28,7 +28,7 @@ Within the Telescope view:
 
 Search and replace:
 
-<Leader> + r                 - open Groug Far search and replace
+<Ctrl> + r                   - open Groug Far search and replace
 
 
 Navigation:
