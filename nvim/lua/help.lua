@@ -5,18 +5,36 @@ local function PrintHelp()
 
 Help:
 
+Leader                      Space
+Localleader                 ° 
+
+Commands:
+
 <Leader> + ?                 - help
 :MyNeovimHelp                - help
 
 Files:
 
-<Leader> + ff                - fuzzy find file
-<Leader> + fg                - grep files
 <Ctrl> + n                   - open NERDTree
 <Leader> + nn                - toggle NERDTree
 :Neotree close               - close NERDTree
-<Leader> + tt                - open terminal
 <Leader> + o                 - open outline
+
+Telescope:
+
+<Leader> + ff                - fuzzy find file
+<Leader> + fg                - grep files
+
+Within the Telescope view:
+
+    <Ctrl>   + q                         - create a quickfix list
+    :cfdo s/SEARCH/REPL/g                - seasrch and replace project wide
+    :cfdo s/SEARCH/REPL/g | update       - same as above but save the changes directly
+
+Search and replace:
+
+<Ctrl> + r                   - open Groug Far search and replace
+<Localleader> + r            - Replace all
 
 Navigation:
 
@@ -94,48 +112,11 @@ Git:
 :Git blame                   - show git blame
 :Git diff                    - show git diff
 :GV                          - open git browser
+<Leader> + lg                - opens lazygit
 
+Emoticons:
 
--- tmux --
-
-Start tmux:
-
-    tmux
-
-    tmux new -s session_name
-
-List sessions:
-
-    tmux ls
-
-Reattach to a session:
-
-    tmux attach
-    
-    tmux a -t session_name
-
-Commands:
-
-<Ctrl> + bd                   - detach session
-<Ctrl> + b$                   - rename session
-
-<Ctrl> + b%                   - split vertically
-<Ctrl> + b"                   - split horizontally
-<Ctrl> + bo                   - switch panes
-<Ctrl> + b<Arrow>             - switch panes
-<Ctrl> + b<Alt> + <Arrow>     - resize panes
-<Ctrl> + bx                   - close pane
-
-<Ctrl> + bc                   - create new window
-<Ctrl> + bn                   - next window
-<Ctrl> + bp                   - previous window
-<Ctrl> + bw                   - list windows
-<Ctrl> + b&                   - close window
-
-<Ctrl> + bs                   - open session menue
-
-         :kill-session        - kill selected session
-         :new -t <name>       - new session
+  ¯\_(ツ)_/¯
 
     ]])
 end
