@@ -1,5 +1,6 @@
 -- leaser key
 vim.g.mapleader = ' '
+vim.g.maplocalleader = '°'
 
 -- tab behavior
 vim.o.expandtab = true

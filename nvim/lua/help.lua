@@ -5,6 +5,11 @@ local function PrintHelp()
 
 Help:
 
+Leader                      Space
+Localleader                 ° 
+
+Commands:
+
 <Leader> + ?                 - help
 :MyNeovimHelp                - help
 
@@ -29,7 +34,7 @@ Within the Telescope view:
 Search and replace:
 
 <Ctrl> + r                   - open Groug Far search and replace
-
+<Localleader> + r            - Replace all
 
 Navigation:
 
