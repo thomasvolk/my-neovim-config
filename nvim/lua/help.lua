@@ -33,7 +33,7 @@ Within the Telescope view:
 
 Search and replace:
 
-<Ctrl> + r                   - open Groug Far search and replace
+<Leader> + r                 - open Groug Far search and replace
 <Localleader> + r            - Replace all
 
 Navigation:
