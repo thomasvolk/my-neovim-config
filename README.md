@@ -54,6 +54,11 @@ Required language server:
     brew install lua-language-server
     ```
 
+* Java
+    ```
+    brew install jdtls
+    ```
+
 ## Installation
 
 Checkout the repo and link it to `$HOME/.config/nvim`:
