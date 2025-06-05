@@ -2,7 +2,8 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim"
+    "williamboman/mason-lspconfig.nvim",
+    "mfussenegger/nvim-jdtls"
   },
   config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -46,6 +47,15 @@ return {
           },
         },
       },
+    })
+
+    -- java-lsp
+
+    lsp.jdtls.setup({
+      cmd = { "jdtls" },
+      filetypes = { "java" },
+      root_dir = lsp.util.root_pattern(".git", "mvnw", "gradlew", "pom.xml", "build.gradle"),
+      capabilities = capabilities,
     })
 
     -- ocaml-lsp
