@@ -98,6 +98,8 @@ q                            - stop recording
 AI:
 
 F2                           - accept suggestion
+F3                           - enable AI support
+F4                           - disable AI support
 :Copilot disable             - disable Copilot
 :Copilot enable              - enable Copilot
 :Codeium Toggle              - enable/disable Codeium (Windsurf plugin)
