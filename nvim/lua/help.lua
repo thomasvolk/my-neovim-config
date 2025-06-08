@@ -95,13 +95,15 @@ q<N>                         - start recording for macro N
 q                            - stop recording
 @<N>                         - replay macro
 
-Copilot:
+AI:
 
 F2                           - accept suggestion
 :Copilot disable             - disable Copilot
-:Copilot enable              _ enable Copilot
+:Copilot enable              - enable Copilot
+:Codeium Toggle              - enable/disable Codeium (Windsurf plugin)
 
-Development:
+
+nvim Development:
 
 :Telescope help_tags         - show interactive lua api help
 :lua vim.notify 'Hello'      - display a hello notification on screen
