@@ -4,7 +4,7 @@ return {
   name = "catppuccin",
   priority = 1000,
   config = function()
-    local theme = os.getenv("CONSOLE_THEME")
+    local theme = os.getenv("MY_NVIM_THEME")
     if theme and string.lower(theme) == "light" then
       vim.cmd.colorscheme "catppuccin-latte"
     else

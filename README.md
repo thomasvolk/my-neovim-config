@@ -68,6 +68,13 @@ Checkout the repo and link it to `$HOME/.config/nvim`:
     git clone git@...my-neovim-config
     ln -s my-neovim-config/nvim nvim
 
+### Environment variables
+
+You can set the following environment variables to customize this configuration:
+
+* `MY_NVIM_THEME` - Set the theme for neovim (`light`, `dark`). Default is `dark`.
+* `MY_NVIM_AI` - Set the AI provider for neovim (`copilot`, `windsurf`). Default is `windsurf`.
+
 ## tmux
 
 Install tmux:
