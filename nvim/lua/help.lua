@@ -6,7 +6,7 @@ local function PrintHelp()
 Help:
 
 Leader                      Space
-Localleader                 ° 
+Localleader                 ` 
 
 Commands:
 
