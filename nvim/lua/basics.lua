@@ -9,7 +9,12 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 
 -- show line numbers
-vim.wo.number = true
+vim.opt.nu = true
+-- use system keyboard for yank
+vim.opt.clipboard = 'unnamedplus'
+-- use relative line numbers
+--vim.opt.relativenumber = true
+
 
 -- Yank into system clipboard
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y') -- yank motion

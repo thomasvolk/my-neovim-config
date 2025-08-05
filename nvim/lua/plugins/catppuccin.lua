@@ -8,7 +8,7 @@ return {
     if theme and string.lower(theme) == "light" then
       vim.cmd.colorscheme "catppuccin-latte"
     else
-      vim.cmd.colorscheme "catppuccin-frappe"
+      vim.cmd.colorscheme "catppuccin-mocha"
     end
   end
 }
