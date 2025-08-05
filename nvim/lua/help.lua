@@ -130,4 +130,4 @@ vim.api.nvim_create_user_command('MyNeovimHelp', PrintHelp,
   {nargs = 0, desc = 'Print help'}
 )
 vim.keymap.set('n', '<F10>', ':MyNeovimHelp<CR>', {})
-vim.keymap.set('n', '<Leader>?', ':MyNeovimHelp<CR>', {})
+vim.keymap.set('n', '<Leader>h', ':MyNeovimHelp<CR>', {})
