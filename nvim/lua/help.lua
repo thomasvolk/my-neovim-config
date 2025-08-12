@@ -25,13 +25,19 @@ Telescope:
 <Leader> + ff                - fuzzy find file
 <Leader> + fg                - grep files
 
-Within the Telescope view:
-
-    <Ctrl>   + q                         - create a quickfix list
-    :cfdo s/SEARCH/REPL/g                - seasrch and replace project wide
-    :cfdo s/SEARCH/REPL/g | update       - same as above but save the changes directly
-
 Search and replace:
+
+
+s/SEARCH/REPLACE/g           - search and replace in a single line
+%s/SEARCH/REPLACE/g          - search and replace in the buffer
+
+
+    Within the Telescope view:
+
+        <Ctrl>   + q                         - create a quickfix list
+        :cfdo s/SEARCH/REPL/g                - search and replace project wide
+        :cfdo s/SEARCH/REPL/g | update       - same as above but save the changes directly
+
 
 <Leader> + sr                - open Groug Far search and replace
 <Localleader> + r            - Replace all
