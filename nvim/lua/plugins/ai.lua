@@ -1,5 +1,5 @@
 
-local ai = os.getenv("MY_NVIM_AI")
+local ai = os.getenv("EDITOR_AI")
 if ai and string.lower(ai) == "copilot" then
   return {
     "github/copilot.vim",
