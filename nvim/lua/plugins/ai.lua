@@ -1,5 +1,5 @@
-
 local ai = os.getenv("EDITOR_AI")
+
 if ai and string.lower(ai) == "copilot" then
   return {
     "github/copilot.vim",
@@ -9,7 +9,9 @@ if ai and string.lower(ai) == "copilot" then
       vim.keymap.set('n', '<F4>', ':Copilot disable<CR>', {})
     end
   }
-else
+end
+
+if ai and string.lower(ai) == "codeium" then
   return {
     'Exafunction/windsurf.vim',
     event = 'BufEnter',
@@ -22,3 +24,5 @@ else
     end
   }
 end
+
+return {}
