@@ -1,4 +1,7 @@
-local ai = os.getenv("EDITOR_AI")
+local ai = os.getenv("NVIM_EDITOR_AI")
+if ai == nil then
+  ai = os.getenv("EDITOR_AI")
+end
 
 if ai and string.lower(ai) == "copilot" then
   return {
