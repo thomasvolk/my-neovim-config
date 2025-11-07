@@ -19,6 +19,15 @@ if ai and string.lower(ai) == "copilot" then
         },
         filetypes = {
           markdown = true,
+          lua = true,
+          python = true,
+          javascript = true,
+          typescript = true,
+          java = true,
+          go = true,
+          terraform = true,
+          ocaml = true,
+          bash = true
         },
       })
       vim.keymap.set('n', '<F3>', ':Copilot enable<CR>', {})
