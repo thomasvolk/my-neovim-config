@@ -9,8 +9,6 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-    local lspconfig = require('lspconfig')
-
     require('mason').setup({})
     local mason_lspconfig = require('mason-lspconfig')
     mason_lspconfig.setup {
@@ -48,28 +46,32 @@ return {
         },
       },
     })
+    vim.lsp.enable("pylsp")
 
     -- java-lsp
 
     vim.lsp.config('jdtls', {
       cmd = { "jdtls" },
       filetypes = { "java" },
-      root_dir = lspconfig.util.root_pattern(".git", "mvnw", "gradlew", "pom.xml", "build.gradle"),
+      root_markers = {".git", "mvnw", "gradlew", "pom.xml", "build.gradle"},
       capabilities = capabilities,
     })
+    vim.lsp.enable("jdtls")
 
     -- ocaml-lsp
 
     vim.lsp.config('ocamllsp', {
       cmd = { "ocamllsp" },
       filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "opam", "reason", "dune" },
-      root_dir = lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
+      root_markers = {"*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"},
       capabilities = capabilities
     })
+    vim.lsp.enable("ocamllsp")
 
     -- terraform-lsp
 
     vim.lsp.config('terraformls', {})
+    vim.lsp.enable("terraformls")
 
 
     -- lua lsp
@@ -83,9 +85,8 @@ return {
           },
         },
       },
-
     })
-
+    vim.lsp.enable("lua_ls")
 
     -- elm
 
@@ -98,8 +99,9 @@ return {
 			  elmPath = "elm",
 			  elmTestPath = "elm-test"
 		  },
-      root_dir = lspconfig.util.root_pattern("elm.json")
+      root_markers = {"elm.json"}
 	  })
+    vim.lsp.enable("elmls")
 
     -- html
 
@@ -107,18 +109,22 @@ return {
       capabilities = capabilities,
       filetypes = { "html", "templ", "xhtml" },
     })
+    vim.lsp.enable("html")
 
     -- css
 
     vim.lsp.config('tailwindcss', {})
+    vim.lsp.enable("tailwindcss")
 
     -- bash
 
     vim.lsp.config('bashls', {})
+    vim.lsp.enable("bashls")
 
     -- make
 
     vim.lsp.config('cmake', {})
+    vim.lsp.enable("cmake")
 
   end
 }
