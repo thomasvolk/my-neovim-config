@@ -5,9 +5,22 @@ end
 
 if ai and string.lower(ai) == "copilot" then
   return {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-      vim.keymap.set('i', '<F2>', 'copilot#Accept()', { noremap = true, expr = true, silent = true, replace_keycodes = false })
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = "<F2>"
+          }
+        },
+        filetypes = {
+          markdown = true,
+        },
+      })
       vim.keymap.set('n', '<F3>', ':Copilot enable<CR>', {})
       vim.keymap.set('n', '<F4>', ':Copilot disable<CR>', {})
     end
