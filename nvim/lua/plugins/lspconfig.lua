@@ -9,6 +9,8 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+    local lspconfig = require('lspconfig')
+
     require('mason').setup({})
     local mason_lspconfig = require('mason-lspconfig')
     mason_lspconfig.setup {
@@ -52,6 +54,7 @@ return {
     vim.lsp.config('jdtls', {
       cmd = { "jdtls" },
       filetypes = { "java" },
+      root_dir = lspconfig.util.root_pattern(".git", "mvnw", "gradlew", "pom.xml", "build.gradle"),
       capabilities = capabilities,
     })
 
@@ -60,6 +63,7 @@ return {
     vim.lsp.config('ocamllsp', {
       cmd = { "ocamllsp" },
       filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "opam", "reason", "dune" },
+      root_dir = lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
       capabilities = capabilities
     })
 
@@ -94,6 +98,7 @@ return {
 			  elmPath = "elm",
 			  elmTestPath = "elm-test"
 		  },
+      root_dir = lspconfig.util.root_pattern("elm.json")
 	  })
 
     -- html
