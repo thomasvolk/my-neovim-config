@@ -14,11 +14,9 @@ return {
     mason_lspconfig.setup {
         ensure_installed = { "pylsp" },
         lua_ls = function()
-          require('lspconfig').lua_ls.setup({})
+          vim.lsp.config.lua_ls.setup({})
         end
     }
-
-    local lsp = require("lspconfig")
 
     -- shortcuts
     vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end, {noremap = true})
@@ -35,7 +33,7 @@ return {
       args = { "--rcfile", pylintrc }
     end
 
-    lsp.pylsp.setup({
+    vim.lsp.config('pylsp', {
       settings = {
         pylsp = {
           plugins = {
@@ -51,30 +49,28 @@ return {
 
     -- java-lsp
 
-    lsp.jdtls.setup({
+    vim.lsp.config('jdtls', {
       cmd = { "jdtls" },
       filetypes = { "java" },
-      root_dir = lsp.util.root_pattern(".git", "mvnw", "gradlew", "pom.xml", "build.gradle"),
       capabilities = capabilities,
     })
 
     -- ocaml-lsp
 
-    lsp.ocamllsp.setup({
+    vim.lsp.config('ocamllsp', {
       cmd = { "ocamllsp" },
       filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "opam", "reason", "dune" },
-      root_dir = lsp.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
       capabilities = capabilities
     })
 
     -- terraform-lsp
 
-    lsp.terraformls.setup({})
+    vim.lsp.config('terraformls', {})
 
 
     -- lua lsp
 
-    lsp.lua_ls.setup({
+    vim.lsp.config('lua_ls', {
       settings = {
         Lua = {
           diagnostics = {
@@ -89,7 +85,7 @@ return {
 
     -- elm
 
-    lsp.elmls.setup( {
+    vim.lsp.config('elmls',  {
 		  cmd = { "elm-language-server" },
 		  filetypes = { "elm" },
 		  init_options = {
@@ -98,27 +94,26 @@ return {
 			  elmPath = "elm",
 			  elmTestPath = "elm-test"
 		  },
-		  root_dir = lsp.util.root_pattern("elm.json")
 	  })
 
     -- html
 
-    lsp.html.setup({
+    vim.lsp.config('html', {
       capabilities = capabilities,
       filetypes = { "html", "templ", "xhtml" },
     })
 
     -- css
 
-    lsp.tailwindcss.setup({})
+    vim.lsp.config('tailwindcss', {})
 
     -- bash
 
-    lsp.bashls.setup({})
+    vim.lsp.config('bashls', {})
 
     -- make
 
-    lsp.cmake.setup({})
+    vim.lsp.config('cmake', {})
 
   end
 }
