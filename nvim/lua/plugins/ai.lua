@@ -5,6 +5,7 @@ end
 
 if ai and string.lower(ai) == "copilot" then
   return {
+    {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
@@ -33,6 +34,17 @@ if ai and string.lower(ai) == "copilot" then
       vim.keymap.set('n', '<F3>', ':Copilot enable<CR>', {})
       vim.keymap.set('n', '<F4>', ':Copilot disable<CR>', {})
     end
+  },
+  {
+      "CopilotC-Nvim/CopilotChat.nvim",
+      dependencies = {
+        { "nvim-lua/plenary.nvim", branch = "master" },
+      },
+      build = "make tiktoken",
+      opts = {
+        -- See Configuration section for options
+      },
+    }
   }
 end
 

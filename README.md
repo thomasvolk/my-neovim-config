@@ -59,6 +59,12 @@ Required language server:
     brew install jdtls
     ```
 
+Required for MCPHub:
+
+    ```
+    brew install uv
+    ```
+
 ## Installation
 
 Checkout the repo and link it to `$HOME/.config/nvim`:
