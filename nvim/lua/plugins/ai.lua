@@ -113,7 +113,6 @@ if ai and string.lower(ai) == "ollama" then
       },
     },
 
-    ---@type Ollama.Config
     opts = {
       -- your configuration overrides
     }
