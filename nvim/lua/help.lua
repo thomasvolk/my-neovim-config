@@ -119,12 +119,17 @@ nvim Development:
 
 Git:
 
+<Leader> + lg                - opens lazygit
 :G                           - open fugitive
+    s                        - stage changes
+    u                        - unstage changes
+    cc                       - create commit
+:Git push                    - push changes
 :Git log                     - show git log
 :Git blame                   - show git blame
 :Git diff                    - show git diff
 :GV                          - open git browser
-<Leader> + lg                - opens lazygit
+
 
 Emoticons:
 
