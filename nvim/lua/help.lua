@@ -109,7 +109,8 @@ F4                           - disable AI support
 :Copilot disable             - disable Copilot
 :Copilot enable              - enable Copilot
 :Codeium Toggle              - enable/disable Codeium (Windsurf plugin)
-
+:MCPHub                      - open mcp hub
+:CopilotChat                 - open Copilot Chat
 
 nvim Development:
 
@@ -118,6 +119,7 @@ nvim Development:
 
 Git:
 
+:G                           - open fugitive
 :Git log                     - show git log
 :Git blame                   - show git blame
 :Git diff                    - show git diff
