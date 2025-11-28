@@ -62,7 +62,6 @@ return {
           },
         },
       })
-      -- open the chat on the right side
       vim.keymap.set('n', '<leader>cc', ':CodeCompanionChat<CR>', {})
     end,
 

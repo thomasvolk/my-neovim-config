@@ -83,7 +83,6 @@ return {
             refactor = { provider = "copilot", model = "code-davinci-002" },
           },
         })
-        -- open the chat on the right side
         vim.keymap.set('n', '<leader>cc', ':CodeCompanionChat<CR>', {})
       end,
     }
