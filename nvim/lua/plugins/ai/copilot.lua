@@ -69,25 +69,20 @@ return {
         -- plenary.nvim provides common utility functions that are used by many Neovim plugins.
         "nvim-lua/plenary.nvim",
       },
-
-      -- The 'opts' table contains all the user-specific settings for the plugin.
-      opts = {
-        -- This 'strategies' table sets the DEFAULT AI PROVIDER and MODEL
-        -- for different categories of actions within the plugin.
-        strategies = {
-          -- add copilot strategy
-          -- The 'default' strategy is used for general code generation tasks.
-          default = { provider = "copilot", model = "code-davinci-002" },
-          -- The 'explain' strategy is used for code explanation tasks.
-          explain = { provider = "copilot", model = "code-davinci-002" },
-          -- The 'test' strategy is used for generating tests.
-          test = { provider = "copilot", model = "code-davinci-002" },
-          -- The 'refactor' strategy is used for code refactoring tasks.
-          refactor = { provider = "copilot", model = "code-davinci-002" },
-        },
-      },
       config = function()
-        require("codecompanion").setup({})
+        require("codecompanion").setup({
+          strategies = {
+            -- add copilot strategy
+            -- The 'default' strategy is used for general code generation tasks.
+            default = { provider = "copilot", model = "code-davinci-002" },
+            -- The 'explain' strategy is used for code explanation tasks.
+            explain = { provider = "copilot", model = "code-davinci-002" },
+            -- The 'test' strategy is used for generating tests.
+            test = { provider = "copilot", model = "code-davinci-002" },
+            -- The 'refactor' strategy is used for code refactoring tasks.
+            refactor = { provider = "copilot", model = "code-davinci-002" },
+          },
+        })
         -- open the chat on the right side
         vim.keymap.set('n', '<leader>cc', ':CodeCompanionChat<CR>', {})
       end,
