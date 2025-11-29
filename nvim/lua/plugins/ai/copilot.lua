@@ -63,6 +63,7 @@ return {
     {
       -- The GitHub repository for the codecompanion.nvim plugin.
       "olimorris/codecompanion.nvim",
+      branch = 'v18',
 
       -- Specifies other plugins that codecompanion.nvim needs to function correctly.
       dependencies = {
