@@ -3,10 +3,9 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   config = function()
-    config = require("nvim-treesitter")
+    local config = require("nvim-treesitter")
     config.setup({})
-    config.install(
-      {
+    config.install({
         "lua",
         "ocaml",
         "python",
@@ -20,7 +19,6 @@ return {
         "terraform",
         "markdown",
         "markdown_inline"
-      }
-    )
+      })
   end
 }
