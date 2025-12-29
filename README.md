@@ -61,9 +61,9 @@ Required language server:
 
 Required for MCPHub:
 
-    ```
-    brew install uv
-    ```
+```
+brew install uv
+```
 
 ## Installation
 
