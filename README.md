@@ -12,6 +12,12 @@ You have to have the following software installed
 * fd
 * luarocks
 
+Required for treesitter:
+
+    npm install -g tree-sitter-cli
+
+Call `:Lazy` and `U` to install all treesitter parsers.
+
 Required for telescope:
 
 * ripgrep
