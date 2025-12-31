@@ -16,7 +16,7 @@ Required for treesitter:
 
     npm install -g tree-sitter-cli
 
-Call `:Lazy` and `U` to install all treesitter parsers.
+Start neovim and call `:Lazy` and `U` to install all treesitter parser.
 
 Required for telescope:
 
