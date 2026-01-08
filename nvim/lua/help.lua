@@ -130,6 +130,15 @@ Git:
 :Git diff                    - show git diff
 :GV                          - open git browser
 
+Shell:
+
+:!<command>                  - run shell command
+:.!<command>                 - replace line with output of shell command
+!ip sort                     - sort paragraph
+!ap jq .                     - format paragraph as json
+:%!column -1                 - align entire file
+
+
 
 Emoticons:
 
