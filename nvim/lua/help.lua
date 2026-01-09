@@ -50,6 +50,9 @@ gd                           - go to definition
 gD                           - go to declaration
 gt                           - go to type definition
 gi                           - go to implementation
+g;                           - go to last change
+g,                           - go to next change
+gv                           - reselect last visual selection
 <Ctrl> + i                   - navigate forward
 <Ctrl> + o                   - navigate back
 
