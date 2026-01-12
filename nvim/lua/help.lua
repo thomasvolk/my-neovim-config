@@ -50,6 +50,9 @@ gd                           - go to definition
 gD                           - go to declaration
 gt                           - go to type definition
 gi                           - go to implementation
+g;                           - go to last change
+g,                           - go to next change
+gv                           - reselect last visual selection
 <Ctrl> + i                   - navigate forward
 <Ctrl> + o                   - navigate back
 
@@ -129,6 +132,15 @@ Git:
 :Git blame                   - show git blame
 :Git diff                    - show git diff
 :GV                          - open git browser
+
+Shell:
+
+:!<command>                  - run shell command
+:.!<command>                 - replace line with output of shell command
+!ip sort                     - sort paragraph
+!ap jq .                     - format paragraph as json
+:%!column -1                 - align entire file
+
 
 
 Emoticons:
