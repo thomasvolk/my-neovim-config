@@ -64,6 +64,13 @@ Required language server:
     ```
     brew install jdtls
     ```
+* F# (ionide)
+    ```
+    brew install dotnet
+    brew install dotnet-sdk
+    dotnet tool install --global fsautocomplete
+    export PATH="$PATH:$HOME/.dotnet/tools"
+    ```
 
 Required for MCPHub:
 
