@@ -1,3 +1,8 @@
+local ollama_model = os.getenv("NVIM_OLLAMA_MODEL")
+if ollama_model == nil then
+  ollama_model = "qwen2.5"
+end
+
 return {
     {
       "ravitemer/mcphub.nvim",
@@ -58,13 +63,13 @@ return {
             -- Configures the default model for running custom prompts.
             cmd = {
               adapter = "ollama",
-              model = "qwen2.5",
+              model = ollama_model,
             },
 
             -- Configures the model for the interactive chat window (:CompanionChat).
             chat = {
               adapter = "ollama",
-              model = "qwen2.5",
+              model = ollama_model,
               tools = {
                 ["mcp"] = {
                   callback = function()
@@ -82,7 +87,7 @@ return {
             -- using the 'inline' strategy.
             inline = {
               adapter = "ollama",
-              model = "qwen2.5",
+              model = ollama_model,
             },
           },
         })
