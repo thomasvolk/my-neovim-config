@@ -114,6 +114,9 @@ F4                           - disable AI support
 :Codeium Toggle              - enable/disable Codeium (Windsurf plugin)
 :MCPHub                      - open mcp hub
 :CopilotChat                 - open Copilot Chat
+<Leader> + cc                - open CodeCompanionChat
+<Leader> + oo                - ollama prompt (mark text first)
+<Leader> + oG                - ollama generate code
 
 nvim Development:
 
