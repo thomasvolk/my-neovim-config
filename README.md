@@ -18,6 +18,15 @@ Required for treesitter:
 
 Start neovim and call `:Lazy` and `U` to install all treesitter parser.
 
+Better cmd tools for macOS:
+
+```
+brew install util-linux
+echo 'export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"' >> ~/.env
+echo 'export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"' >> ~/.env
+
+```
+
 Required for telescope:
 
 * ripgrep
