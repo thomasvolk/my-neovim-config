@@ -143,6 +143,7 @@ Shell:
 !ip sort                     - sort paragraph
 !ap jq .                     - format paragraph as json
 :%!column -1                 - align entire file
+:!column -t -s '|' -o '|'    - align markdown table
 
 
 
