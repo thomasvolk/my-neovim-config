@@ -48,6 +48,7 @@ return {
         })
         vim.keymap.set('n', '<F3>', ':Copilot enable<CR>', {})
         vim.keymap.set('n', '<F4>', ':Copilot disable<CR>', {})
+        vim.cmd("Copilot disable")
       end
     },
     {
