@@ -24,6 +24,7 @@ Telescope:
 
 <Leader> + ff                - fuzzy find file
 <Leader> + fg                - grep files
+<Leader> + <up>              - resume the same search
 
 Search and replace:
 
