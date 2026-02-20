@@ -1,2 +1,0 @@
-
-return {'thomasvolk/subtext.nvim'}
