@@ -11,6 +11,7 @@ return {
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
     vim.keymap.set('n', '<leader>bb', builtin.buffers, {})
     vim.keymap.set('n', '<leader>bd', ':bd<CR>', {})
+    vim.keymap.set('n', '<leader><up>', builtin.resume, {})
 
     local telescope = require('telescope')
 
