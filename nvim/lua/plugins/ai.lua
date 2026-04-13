@@ -25,4 +25,8 @@ if ai and string.lower(ai) == "gemini" then
   config = require("plugins/ai/gemini")
 end
 
+if ai and string.lower(ai) == "cursor" then
+  config = require("plugins/ai/cursor")
+end
+
 return config
