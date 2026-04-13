@@ -3,30 +3,35 @@ if ai == nil then
   ai = os.getenv("EDITOR_AI")
 end
 
-local config = {}
-
-if ai and string.lower(ai) == "copilot" then
-  config = require("plugins/ai/copilot")
+if ai == nil then
+  return {}
 end
 
-if ai and string.lower(ai) == "codeium" then
-  config = require("plugins/ai/codeium")
+local plugins = {
+  copilot="plugins/ai/copilot",
+  codeium="plugins/ai/codeium",
+  ollama="plugins/ai/ollama",
+  claude="plugins/ai/claude",
+  gemini="plugins/ai/gemini",
+  cursor="plugins/ai/cursor"
+}
+
+local function get_plugin(name)
+  local plugin = plugins[name]
+  if plugin == nil then
+    error("Unknown AI plugin: " .. name)
+  end
+  if string.find(ai, name) ~= nil then
+     return require(plugin)
+  end
+  return {}
 end
 
-if ai and string.lower(ai) == "ollama" then
-  config = require("plugins/ai/ollama")
-end
-
-if ai and string.lower(ai) == "claude" then
-  config = require("plugins/ai/claude")
-end
-
-if ai and string.lower(ai) == "gemini" then
-  config = require("plugins/ai/gemini")
-end
-
-if ai and string.lower(ai) == "cursor" then
-  config = require("plugins/ai/cursor")
-end
-
-return config
+return {
+  get_plugin("copilot"),
+  get_plugin("codeium"),
+  get_plugin("ollama"),
+  get_plugin("claude"),
+  get_plugin("gemini"),
+  get_plugin("cursor")
+}
