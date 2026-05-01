@@ -35,3 +35,7 @@ vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
 vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end)
 vim.keymap.set("n", "gt", function() vim.lsp.buf.type_definition() end)
 vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end)
+
+-- navigate changes
+vim.keymap.set('n', '<leader><Right>', ':bnext<CR>')
+vim.keymap.set('n', '<leader><Left>', ':bprevious<CR>')

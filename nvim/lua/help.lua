@@ -62,6 +62,8 @@ Buffers:
 <Leader> + bb                - list buffers
 <Leader> + bd                - close buffers
 :bd                          - close buffer
+<Leader> + <right>           - next buffer
+<Leader> + <left>            - previous buffer
 
 Windows:
 
