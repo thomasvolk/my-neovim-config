@@ -128,7 +128,7 @@ nvim Development:
 
 Git:
 
-<Leader> + lg                - opens lazygit
+<Leader> + g                 - open fugitive
 :G                           - open fugitive
     s                        - stage changes
     u                        - unstage changes
@@ -138,6 +138,7 @@ Git:
 :Git blame                   - show git blame
 :Git diff                    - show git diff
 :GV                          - open git browser
+<Leader> + lg                - open lazygit
 
 Shell:
 

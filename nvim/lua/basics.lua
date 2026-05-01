@@ -39,3 +39,6 @@ vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end)
 -- navigate changes
 vim.keymap.set('n', '<leader><Right>', ':bnext<CR>')
 vim.keymap.set('n', '<leader><Left>', ':bprevious<CR>')
+
+-- git
+vim.keymap.set('n', '<leader>g', ':Git<CR>')
