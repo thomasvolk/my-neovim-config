@@ -80,6 +80,11 @@ Required language server:
     brew install jdtls
     ```
 
+* Rust (installed automatically via Mason)
+    ```
+    rustup component add rust-analyzer
+    ```
+
 Required for MCPHub:
 
 ```

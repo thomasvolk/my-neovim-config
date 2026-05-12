@@ -128,8 +128,16 @@ return {
     vim.lsp.config('cmake', {})
     vim.lsp.enable("cmake")
 
+    -- rust
+
+    vim.lsp.config('rust_analyzer', {
+      filetypes = { "rust" },
+      root_markers = { "Cargo.toml", "Cargo.lock", ".git" },
+      capabilities = capabilities,
+    })
+    vim.lsp.enable("rust_analyzer")
+
     -- javascript / typescript
-    
     vim.lsp.config('ts_ls', {
       capabilities = capabilities,
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
