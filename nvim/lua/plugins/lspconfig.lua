@@ -44,6 +44,7 @@ return {
               enabled = true,
             },
             pycodestyle = { enabled = false }, -- Disable other linters if needed
+            pyflakes = { enabled = false }, -- pylint covers this; pyflakes can't ignore wildcard-import per-rule
           },
         },
       },
