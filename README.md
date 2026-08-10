@@ -6,6 +6,7 @@ This is my neovim configuration.
 
 You have to have the following software installed
 
+* Neovim >= 0.12.4
 * Python3
 * node
 * git
