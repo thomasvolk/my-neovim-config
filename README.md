@@ -94,12 +94,13 @@ brew install uv
 
 ## Installation
 
-Checkout the repo and link it to `$HOME/.config/nvim`:
+Checkout the repo and run the installer, which backs up any existing
+`$HOME/.config/nvim` to `nvim_bak` and links this repo's `nvim` directory
+to `$HOME/.config/nvim`:
 
-    cd $HOME/.config/
-    mv nvim nvim_bak
-    git clone git@...my-neovim-config
-    ln -s my-neovim-config/nvim nvim
+    git clone git@github.com:thomasvolk/my-neovim-config.git
+    cd my-neovim-config
+    make install
 
 ### Environment variables
 
