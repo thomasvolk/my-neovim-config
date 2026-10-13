@@ -106,20 +106,6 @@ q<N>                         - start recording for macro N
 q                            - stop recording
 @<N>                         - replay macro
 
-AI:
-
-F2                           - accept suggestion
-F3                           - enable AI support
-F4                           - disable AI support
-:Copilot disable             - disable Copilot
-:Copilot enable              - enable Copilot
-:Codeium Toggle              - enable/disable Codeium (Windsurf plugin)
-:MCPHub                      - open mcp hub
-:CopilotChat                 - open Copilot Chat
-<Leader> + cc                - open CodeCompanionChat
-<Leader> + oo                - ollama prompt (mark text first)
-<Leader> + oG                - ollama generate code
-
 nvim Development:
 
 :Telescope help_tags         - show interactive lua api help
